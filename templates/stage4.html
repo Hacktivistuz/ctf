@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>Stage 7 - Fayl Tahlil Topshirig‘i</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #0f0f0f;
+            color: #00ffcc;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            max-width: 700px;
+            margin: auto;
+            background: #1a1a1a;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px #00ffcc;
+        }
+        a.download {
+            display: inline-block;
+            margin: 15px;
+            padding: 10px 20px;
+            background: #00ffcc;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        input[type="text"] {
+            width: 60%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            margin: 10px 5px;
+            background: #00ffcc;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .message {
+            margin: 15px 0;
+            font-size: 18px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>🕵️‍♂️ DiHunter Cyber Race 4-bosqich </h2>
+        <p>Bu bosqichda siz foydalanuvchi parolini topib tizimga buzib kirishingiz talab etiladi</p>
+        <a class="download" href="{{ url_for('static', filename='file4.txt') }}" download>📁 Faylni Yuklab Olish</a>
+
+        <form method="POST">
+            <input type="hidden" name="action" value="submit_flag">
+            <div>
+                <input type="text" name="flag_input" placeholder="Topilgan parolni kiriting" required>
+            </div>
+            <div>
+                <button type="submit">✅ Jo‘natish</button>
+                <a href="{{ url_for('ctf_stage', num=3) }}"><button type="button">⬅️ Orqaga</button></a>
+                <a href="{{ url_for('ctf_stage', num=5) }}"><button type="button">⏭️ O'tkazib yuborish</button></a>
+            </div>
+        </form>
+
+        {% if message %}
+            <div class="message">{{ message }}</div>
+        {% endif %}
+
+        {% if success %}
+            <a href="{{ url_for('ctf_stage', num='5') }}"><button>➡️ Keyingi Bosqichga O‘tish</button></a>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!-- templates/login.html -->
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <title>CTF Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts (Optional for hacker look) -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #0f172a, #1e293b);
+            font-family: 'Share Tech Mono', monospace;
+            color: #00ffcc;
+        }
+
+        input, button {
+            background-color: #0f172a;
+            border: 1px solid #00ffcc;
+            color: #00ffcc;
+        }
+
+        input::placeholder {
+            color: #94a3b8;
+        }
+
+        a {
+            color: #38bdf8;
+        }
+
+        a:hover {
+            color: #0ea5e9;
+        }
+
+        .glow {
+            text-shadow: 0 0 5px #00ffcc, 0 0 10px #00ffcc, 0 0 20px #00ffcc;
+        }
+    </style>
+</head>
+<body class="flex items-center justify-center min-h-screen px-4">
+    <div class="w-full max-w-sm p-6 bg-[#0f172a] rounded-2xl shadow-lg border border-cyan-400">
+        <h2 class="text-2xl text-center mb-6 glow">CTF Platformasiga Xush Kelibsiz</h2>
+        <form method="POST" action="/login" class="flex flex-col gap-4">
+            <input type="text" name="username" placeholder="Login" required class="p-3 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400">
+            <input type="password" name="password" placeholder="Parol" required class="p-3 rounded focus:outline-none focus:ring-2 focus:ring-cyan-400">
+            <button type="submit" class="p-3 rounded bg-cyan-400 hover:bg-cyan-500 text-black font-bold transition duration-200">Kirish</button>
+        </form>
+        <p class="text-sm text-center mt-4">Yangi foydalanuvchi? <a href="/register">Ro‘yxatdan o‘tish</a></p>
+    </div>
+</body>
+</html>
+
